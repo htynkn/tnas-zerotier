@@ -13,12 +13,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Build docker
-        run: docker build -f Dockerfile.x86_64 . -t htynkn/tnas-zerotier_x86_64
       - name: Build source
-        run: docker run -v $(pwd):/data htynkn/tnas-zerotier_x86_64
+        run: docker run -v $(pwd):/data rustembedded/cross:x86_64-unknown-linux-gnu-0.2.1 /bin/sh -c "cd /data/zerotier && make CC=/usr/bin/x86_64-linux-gnu-gcc CXX=/usr/bin/x86_64-linux-gnu-g++ AR=/usr/bin/x86_64-linux-gnu-ar STRIP=/usr/bin/x86_64-linux-gnu-strip"
       - name: Copy exec file
-        run: mkdir -p packing/usr/local/zerotier/
+        run: mkdir -p packing/usr/local/zerotier/ && cp zerotier/zerotier* packing/usr/local/zerotier/ && chmod +x packing/usr/local/zerotier/*
       - uses: htynkn/terra-master-packing-action@master
         name: Terra-Master packing
         with:

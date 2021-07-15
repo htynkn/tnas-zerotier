@@ -1,4 +1,0 @@
-FROM rustembedded/cross:aarch64-unknown-linux-gnu-0.2.1
-
-COPY entrypoint_x86_64.sh /entrypoint.sh
-ENTRYPOINT [ "/entrypoint.sh" ]

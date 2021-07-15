@@ -1,0 +1,1 @@
+cd /data && make CC=/usr/bin/x86_64-linux-gnu-gcc CXX=/usr/bin/x86_64-linux-gnu-g++ AR=/usr/bin/x86_64-linux-gnu-ar STRIP=/usr/bin/x86_64-linux-gnu-strip

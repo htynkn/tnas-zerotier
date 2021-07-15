@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SCRIPT=/usr/local/zerotier/zerotier-one -d
+SCRIPT=/usr/local/zerotier/zerotier-one
 RUNAS=root
 
 PIDFILE=/var/run/zerotier.pid

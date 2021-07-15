@@ -27,3 +27,23 @@ jobs:
         with:
           name: tpk
           path: "*.tpk"
+  amd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build source
+        run: docker run -v $(pwd):/data rustembedded/cross:aarch64-unknown-linux-gnu-0.2.1 /bin/sh -c "cd /data/zerotier && make CC=/usr/bin/aarch64-linux-gnu-gcc CXX=/usr/bin/aarch64-linux-gnu-g++ AR=/usr/bin/aarch64-linux-gnu-ar STRIP=/usr/bin/aarch64-linux-gnu-strip"
+      - name: Copy exec file
+        run: mkdir -p packing/usr/local/zerotier/ && cp zerotier/zerotier* packing/usr/local/zerotier/ && chmod +x packing/usr/local/zerotier/*
+      - uses: htynkn/terra-master-packing-action@master
+        name: Terra-Master packing
+        with:
+          folder-name: packing/
+          arch: amd_apps
+          tpk-name: zerotier
+      - uses: actions/upload-artifact@v2
+        with:
+          name: tpk
+          path: "*.tpk"

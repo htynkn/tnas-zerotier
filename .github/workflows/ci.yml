@@ -25,7 +25,7 @@ jobs:
           tpk-name: zerotier
       - uses: actions/upload-artifact@v2
         with:
-          name: tpk
+          name: x86_apps
           path: "*.tpk"
   amd:
     runs-on: ubuntu-latest
@@ -45,5 +45,5 @@ jobs:
           tpk-name: zerotier
       - uses: actions/upload-artifact@v2
         with:
-          name: tpk
+          name: amd_apps
           path: "*.tpk"

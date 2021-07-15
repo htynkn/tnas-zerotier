@@ -11,7 +11,7 @@
     
 <h1>Zerotier</h1>
 
-<p>Find more information in website: <a href="https://www.zerotier.com/">zerotier</a></p>
+<p>Find more information in website: <a href="https://www.zerotier.com/" target="_blank">zerotier</a></p>
 <p>Notice: this app (source code) is created by ZeroTier, Inc.</p>
 
 </body>

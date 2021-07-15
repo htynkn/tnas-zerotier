@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Copy exec file
         run: mkdir -p packing/usr/local/zerotier/
       - uses: htynkn/terra-master-packing-action@master

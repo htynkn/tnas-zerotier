@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  x86:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy exec file
+        run: mkdir -p packing/usr/local/zerotier/
+      - uses: htynkn/terra-master-packing-action@master
+        name: Terra-Master packing
+        with:
+          folder-name: packing/
+          arch: x86_apps
+          tpk-name: zerotier
+      - uses: actions/upload-artifact@v2
+        with:
+          name: tpk
+          path: "*.tpk"

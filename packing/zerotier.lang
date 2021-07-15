@@ -1,0 +1,12 @@
+[en-us]
+name = "Zerotier"
+auth = "htynkn"
+version = "1.0.0"
+descript = "A useful tool which help you to have easy access to your nas"
+
+[zh-cn]
+name = "Zerotier"
+auth = "htynkn"
+version = "1.0.0"
+descript = "内网组网利器"
+
